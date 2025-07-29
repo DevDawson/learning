@@ -40,3 +40,5 @@ app.listen(3000, async () => {
 		console.log(`Error: ${error}`)
 	}	
 });
+
+// git push -u origin main
