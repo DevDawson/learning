@@ -17,6 +17,8 @@ const json = {
 	]
 }
 
-
+app.get('/', (req,res) => {
+	res.send({"data": json})
+})
 
 app.listen(3000, () => { console.log('data') });
