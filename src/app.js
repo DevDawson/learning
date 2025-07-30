@@ -98,9 +98,9 @@ app.patch('/customers/:id', async (req, res) => {
 
 		const customer = await Customer.findByIdAndUpdate(req.params.id, {
 			$set: { industry: req.body.industry }
-		}, { new: true, runValidators: true })
+		}, { new: true, runValidators: true });
 
-		
+
 		if (!customer) {
 			return res.status(404).send({ message: 'Customer not found' });
 		}
@@ -113,7 +113,9 @@ app.patch('/customers/:id', async (req, res) => {
 			},
 		});
 	} catch (error) {
+
 		console.log(error.message)
+
 	}
 })
 
@@ -128,7 +130,9 @@ app.delete('/customers/delAll', async (req, res) => {
 
 		res.send({ "message": " all Data deleted" });
 	} catch (error) {
+
 		console.log(error.message);
+
 	}
 })
 
@@ -139,10 +143,14 @@ const PORT = process.env.PORT || 3000
 
 app.listen(PORT, async () => {
 	try {
-		await mongoose.connect(process.env.MONGO_URI).then(() => { console.log('Connected to database') })
-		console.log(`Api running on port ${PORT}`)
+
+		await mongoose.connect(process.env.MONGO_URI).then(() => { console.log('Connected to database') });
+		console.log(`Api running on port ${PORT}`);
+
 	} catch (error) {
+
 		console.log(`Error: ${error.message}`)
+
 	}
 });
 
